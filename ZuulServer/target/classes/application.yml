@@ -1,0 +1,29 @@
+server:
+  port: 8777
+  
+info:
+  component: Zuul Edge Server
+
+spring:
+  application:
+    name: zuuledgeserver
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  ignoredServices: "*"
+  routes:
+    weathercompositems:
+      path: /weathercomposite/**
+      stripPrefix: false
+ribbon:
+    readTimeout :5000
+    hystrixTimeout:4500
+    execTime:4000
+

@@ -1,0 +1,16 @@
+server:
+  port: 0
+
+info:
+  component: Forecast Micro service - UP 
+
+eureka:
+  instance:
+    hostName: <host ip address of eureka>
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+  client:
+    serviceUrl:
+      defaultZone: http://<host ip address of eureka>:8761/eureka/ 
+    registryFetchIntervalSeconds: 5
